@@ -1,0 +1,25 @@
+modules:
+  jira:issuePanel:
+    - key: translator-app-translator-issue-panel
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: Translation App
+      icon: https://developer.atlassian.com/platform/forge/images/icons/issue-panel-icon.svg
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+app:
+  id: ari:cloud:ecosystem::app/8d23a6b1-aba5-42a9-ba60-d59729a176c0
+permissions:
+  scopes:
+    - storage:app
+    - 'read:jira-work'
+  external:
+    fetch:
+      backend:
+        - 'https://api.cognitive.microsofttranslator.com'
